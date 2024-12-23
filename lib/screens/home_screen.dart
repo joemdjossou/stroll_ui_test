@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:stroll_ui_test/controllers/option_button_controller.dart';
 import 'package:stroll_ui_test/utils/constants/app_gaps.dart';
 import 'package:stroll_ui_test/utils/constants/images_string.dart';
 import 'package:stroll_ui_test/utils/theme/app_theme.dart';
@@ -13,8 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Stroll Bonfire',
                       style: Theme.of(context).textTheme.displayLarge?.copyWith(
                         color: AppTheme.shadePurple,
-                        fontSize: 33,
+                        fontSize: 35,
                         shadows: [
                           const Shadow(
                             offset: Offset(0, -1.5),
@@ -270,36 +270,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     // Question Options
-                    SizedBox(
-                      child: GridView(
-                        padding: const EdgeInsets.all(8.0),
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 10.0,
-                          mainAxisSpacing: 14.0,
-                          childAspectRatio: 2.7,
+                    GetBuilder<OptionButtonController>(
+                      init: OptionButtonController(),
+                      builder: (controller) => SizedBox(
+                        child: GridView(
+                          padding: const EdgeInsets.all(8.0),
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 10.0,
+                            mainAxisSpacing: 14.0,
+                            childAspectRatio: 2.7,
+                          ),
+                          children: List.generate(
+                            controller.optionList.length,
+                            (index) => OptionButton(
+                              letter: controller.optionList[index].optionLetter,
+                              text: controller.optionList[index].text,
+                            ),
+                          ),
                         ),
-                        children: const [
-                          OptionButton(
-                            letter: 'A',
-                            text: 'The peace in the early mornings',
-                          ),
-                          OptionButton(
-                            letter: 'B',
-                            text: 'The magical golden hours',
-                          ),
-                          OptionButton(
-                            letter: 'C',
-                            text: 'Wind down time after dinners',
-                          ),
-                          OptionButton(
-                            letter: 'D',
-                            text: 'The serenity past midnight',
-                          ),
-                        ],
                       ),
                     ),
                     AppGaps.hGap16,
@@ -335,11 +327,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               AppGaps.wGap10,
                               InkWell(
                                 onTap: () {},
-                                // style: ElevatedButton.styleFrom(
-                                //   shape: const CircleBorder(),
-                                //   backgroundColor: Colors.purple,
-                                //   padding: const EdgeInsets.all(16),
-                                // ),
                                 child: SvgPicture.asset(StrollImages.nextIcon),
                               ),
                             ],
@@ -351,32 +338,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(StrollImages.cardsIcon),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(StrollImages.bonfireIcon),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(StrollImages.messageIcon),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(StrollImages.userIcon),
-            label: '',
           ),
         ],
       ),

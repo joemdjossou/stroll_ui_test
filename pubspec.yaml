@@ -37,6 +37,10 @@ dependencies:
   flutter_svg: ^2.0.10+1
 
   # State Management
+  get: ^4.6.5
+
+  # For GetX local storage
+  get_storage: ^2.1.1
 
   # Navigation
 

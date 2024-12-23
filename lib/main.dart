@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:stroll_ui_test/screens/navigation_bar_screen.dart';
 import 'package:stroll_ui_test/utils/theme/app_theme.dart';
-import 'package:stroll_ui_test/screens/home_screen.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
+  WidgetsFlutterBinding.ensureInitialized();
+  // Set status bar icon and text color
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // Transparent status bar
+      statusBarIconBrightness: Brightness.light, // Light icons (white)
+      statusBarBrightness: Brightness.dark, // iOS-specific: dark background
+    ),
+  );
   runApp(const MyApp());
 }
 
@@ -15,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'Stroll UI Test',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme(),
-      home: const HomeScreen(),
+      home: const NavigationBarScreen(),
     );
   }
 }
