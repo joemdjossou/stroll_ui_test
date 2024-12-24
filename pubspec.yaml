@@ -45,6 +45,7 @@ dependencies:
   # Navigation
 
   # Utils
+  device_preview_minus: ^1.0.4
 
 dev_dependencies:
   flutter_test:

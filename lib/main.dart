@@ -1,3 +1,4 @@
+import 'package:device_preview_minus/device_preview_minus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_storage/get_storage.dart';
@@ -15,7 +16,12 @@ void main() async {
       statusBarBrightness: Brightness.dark, // iOS-specific: dark background
     ),
   );
-  runApp(const MyApp());
+  runApp(
+    // DevicePreview(
+    //   builder: (context) =>
+    const MyApp(),
+    // ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -27,6 +33,8 @@ class MyApp extends StatelessWidget {
       title: 'Stroll UI Test',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme(),
+      // locale: DevicePreview.locale(context),
+      // builder: DevicePreview.appBuilder,
       home: const NavigationBarScreen(),
     );
   }

@@ -170,8 +170,10 @@ class HomeScreen extends StatelessWidget {
 
           /// Name and age
           Positioned(
-            top: 460,
-            left: 70,
+            top: MediaQuery.sizeOf(context).height * 0.5,
+            left: MediaQuery.sizeOf(context).width * 0.15,
+            // top: 460,
+            // left: 70,
             child: Container(
               height: 22,
               decoration: const BoxDecoration(
@@ -197,8 +199,10 @@ class HomeScreen extends StatelessWidget {
 
           /// Profile picture
           Positioned(
-            top: 460,
-            left: 24,
+            // top: 460,
+            // left: 24,
+            top: MediaQuery.sizeOf(context).height * 0.5,
+            left: MediaQuery.sizeOf(context).width * 0.05,
             child: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -218,7 +222,7 @@ class HomeScreen extends StatelessWidget {
 
           // Question Card
           Positioned(
-            bottom: 2.0,
+            bottom: MediaQuery.sizeOf(context).height * 0.001,
             child: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Padding(
@@ -273,11 +277,17 @@ class HomeScreen extends StatelessWidget {
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
+                              SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            crossAxisSpacing: 10.0,
-                            mainAxisSpacing: 14.0,
-                            childAspectRatio: 2.7,
+                            crossAxisSpacing:
+                                MediaQuery.sizeOf(context).width * 0.02,
+                            mainAxisSpacing:
+                                MediaQuery.sizeOf(context).height * 0.02,
+                            childAspectRatio:
+                                MediaQuery.sizeOf(context).height * 0.0033,
+                            // crossAxisSpacing: 10.0,
+                            // mainAxisSpacing: 14.0,
+                            // childAspectRatio: 2.7,
                           ),
                           children: List.generate(
                             controller.optionList.length,
