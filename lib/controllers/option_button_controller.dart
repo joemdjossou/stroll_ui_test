@@ -36,7 +36,7 @@ class OptionButtonController extends GetxController {
 
   @override
   void onInit() {
-    onOptionSelected(optionId: 0);
+    _optionId = 0;
     super.onInit();
   }
 }

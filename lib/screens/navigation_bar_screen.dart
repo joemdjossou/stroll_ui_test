@@ -36,32 +36,28 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 StrollImages.cardsIcon,
-                color:
-                    controller.currentIndex == 0 ? AppTheme.primaryColor : null,
+                color: controller.currentIndex == 0 ? AppTheme.textColor : null,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 StrollImages.bonfireIcon,
-                color:
-                    controller.currentIndex == 1 ? AppTheme.primaryColor : null,
+                color: controller.currentIndex == 1 ? AppTheme.textColor : null,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 StrollImages.messageIcon,
-                color:
-                    controller.currentIndex == 2 ? AppTheme.primaryColor : null,
+                color: controller.currentIndex == 2 ? AppTheme.textColor : null,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 StrollImages.userIcon,
-                color:
-                    controller.currentIndex == 3 ? AppTheme.primaryColor : null,
+                color: controller.currentIndex == 3 ? AppTheme.textColor : null,
               ),
               label: '',
             ),

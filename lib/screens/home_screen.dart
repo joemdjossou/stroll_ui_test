@@ -7,14 +7,9 @@ import 'package:stroll_ui_test/utils/constants/images_string.dart';
 import 'package:stroll_ui_test/utils/theme/app_theme.dart';
 import 'package:stroll_ui_test/widgets/option_button.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -287,6 +282,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: List.generate(
                             controller.optionList.length,
                             (index) => OptionButton(
+                              id: controller.optionList[index].id,
                               letter: controller.optionList[index].optionLetter,
                               text: controller.optionList[index].text,
                             ),
