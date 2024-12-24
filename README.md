@@ -24,7 +24,7 @@ A UI test asked to be done by Stroll HR team
 
 - **App Interactivity:** It was anticipated that the majority of the application content would be dynamic.
 
-- **Design and functionalities:** The functionalities are much more important than the user interface, but without a good interface the users will not even check the functionalities, so a balance between the two was found.
+- **Design and functionalities:** The functionalities are as important as the user interface, so a balance between the two was found.
 
 ## III. Challenges Faced and Overcoming Them:
 
